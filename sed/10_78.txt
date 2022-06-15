@@ -1,0 +1,6 @@
+echo ' ==================================== '
+sed '/IT/a contact: tecl. 777 111 222' table.txt
+echo ' ==================================== '
+sed '/IT/i contact: tecl. 777 111 222' table.txt
+echo ' ==================================== '
+sed '1i Employee list' table.txt
