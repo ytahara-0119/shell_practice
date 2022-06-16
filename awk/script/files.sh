@@ -61,4 +61,29 @@ if [ "$EXT" != "" ]; then
     echo "No file with extension: $EXT found"
     exit 2
   fi
+
+	#count size of files with specific extension
+  ls -l $LOCATION | awk '/^-/' | grep "\.$EXT$" | awk '{
+    sum+=$5
+    if (NR==1) {
+      min=$5
+      max=$5
+      min_name=$9
+      max_name=$9
+    }
+
+    if ($5 > max) {
+      max=$5
+      max_name=$9
+    }
+    
+    if ($5 < min) {
+      min=$5
+      min_name=$9
+    }
+  }
+  END{
+    print "SUM: ", sum/1024/1024 " MB"
+    print "Files: ", NR
+  }'	
 fi
