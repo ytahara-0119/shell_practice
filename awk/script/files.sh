@@ -11,6 +11,9 @@ function usage() {
 	exit 1
 }
 
+LOC_SET=0     #0-location not set, use current location     1-location set
+STATS=0       #0-do not display statistics                  1-display statistics
+
 while [ $# -gt 0 ]
 do
 	case $1 in
@@ -19,6 +22,7 @@ do
 			if ! [ -d "$LOCATION" ]; then
 				usage
 			fi
+			LOC_SET=1
 			shift
 			shift
 			;;
@@ -29,6 +33,7 @@ do
 			shift
 			;;
 		-s|--stats )
+		  STATS=1	
 			shift
 			;;
 		
@@ -44,3 +49,8 @@ do
 
 done
 
+if [ $LOC_SET -ne 1 ]; then
+  LOCATION=$(pwd)
+fi
+
+echo "Location: $LOCATION"
