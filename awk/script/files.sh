@@ -29,7 +29,6 @@ do
 			shift
 			;;
 		-s|--stats )
-			STATS=1
 			shift
 			;;
 		
