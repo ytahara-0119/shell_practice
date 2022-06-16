@@ -54,6 +54,8 @@ if [ $LOC_SET -ne 1 ]; then
 fi
 
 echo "Location: $LOCATION"
+AWK_FILE=$(pwd)/size.awk
+echo "Awk_File: $AWK_FILE"
 
 if [ "$EXT" != "" ]; then
   ls -l $LOCATION | awk '/^-/' | grep "\.$EXT$" &>/dev/null
@@ -63,60 +65,7 @@ if [ "$EXT" != "" ]; then
   fi
 
 	#count size of files with specific extension
-  ls -l $LOCATION | awk '/^-/' | grep "\.$EXT$" | awk -v stats=$STATS '{
-    sum+=$5
-    if (NR==1) {
-      min=$5
-      max=$5
-      min_name=$9
-      max_name=$9
-    }
-
-    if ($5 > max) {
-      max=$5
-      max_name=$9
-    }
-    
-    if ($5 < min) {
-      min=$5
-      min_name=$9
-    }
-  }
-  END{
-    print "SUM: ", sum/1024/1024 " MB"
-    print "Files: ", NR
-		if (stats==1) {
-      print "Largest file:\t", max_name, max/1024/1024, "MB"
-      print "Smallest file:\t", min_name, min/1024/1024, "MB"
-    }
-  }'	
-
+  ls -l $LOCATION | awk '/^-/' | grep "\.$EXT$" | awk -v stats=$STATS -f $AWK_FILE
 else
-  ls -l $location | awk '/^-/' | awk -v stats=$STATS '{
-    sum+=$5
-    if (NR==1) {
-      min=$5
-      max=$5
-      min_name=$9
-      max_name=$9
-    }
-
-    if ($5 > max) {
-      max=$5
-      max_name=$9
-    }
-    
-    if ($5 < min) {
-      min=$5
-      min_name=$9
-    }
-  }
-  END{
-    print "SUM: ", sum/1024/1024 " MB"
-    print "Files: ", NR
-    if (stats==1) {
-      print "Largest file:\t", max_name, max/1024/1024, "MB"
-      print "Smallest file:\t", min_name, min/1024/1024, "MB"
-    }
-  }'
+  ls -l $LOCATION | awk '/^-/' | awk -v stats=$STATS -f $AWK_FILE
 fi
