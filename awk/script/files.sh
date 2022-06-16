@@ -19,7 +19,6 @@ do
 			if ! [ -d "$LOCATION" ]; then
 				usage
 			fi
-			LOC_SET=1
 			shift
 			shift
 			;;
