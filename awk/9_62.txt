@@ -1,0 +1,6 @@
+echo ' ================================ '
+echo "one two three four" | awk 'BEGIN{FS="two"} {print $1 " " $2}'
+echo ' ================================ '
+cat /etc/passwd | awk 'BEGIN{FS=":"} {print $1 " " $7}'
+echo ' ================================ '
+cat /etc/passwd | awk -F ":" '{print $1 " " $7}'

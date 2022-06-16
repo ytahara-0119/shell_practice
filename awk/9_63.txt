@@ -1,0 +1,10 @@
+echo ' ================================== '
+cat /etc/passwd | awk 'BEGIN{RS=":"} {print $0}'
+echo ' ================================== '
+cat /etc/passwd | awk 'BEGIN{RS=":"} END{print NR}'
+echo ' ================================== '
+cat /etc/passwd | wc -l
+echo ' ================================== '
+cat /etc/passwd | awk 'END{print NR}'
+echo ' ================================== '
+cat /etc/passwd | awk 'BEGIN{RS="\n"} END{print NR}'

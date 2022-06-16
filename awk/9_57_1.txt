@@ -1,0 +1,8 @@
+echo ' 1=================== '
+awk 'BEGIN{print "Hello"}'
+echo ' 2=================== '
+#awk '{print "Hello"}'
+echo ' 3=================== '
+awk 'END{print "Hello"}'
+echo ' 4=================== '
+echo "one two three four" | awk '{print "Hello"}'

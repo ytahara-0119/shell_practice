@@ -1,0 +1,8 @@
+echo ' ================================ '
+awk '{print "Hello"}' hello.txt
+echo ' ================================ '
+cat hello.txt | awk '{print "Hello"}'
+echo ' ================================ '
+awk 'BEGIN{print "BEGIN part"} {print "Hello"}' hello.txt
+echo ' ================================ '
+awk 'BEGIN{print "BEGIN part"} {print "Hello"} END{print "END part"}' hello.txt

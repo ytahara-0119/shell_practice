@@ -1,0 +1,12 @@
+echo ' =================================== '
+echo "one two three four" | awk '{print NR}'
+echo ' =================================== '
+cat table
+echo ' =================================== '
+cat table | awk '{print NR}'
+echo ' =================================== '
+cat table | awk 'END{print NR}'
+echo ' =================================== '
+cat table | awk '{print NF}'
+echo ' =================================== '
+cat table | awk 'END{print NF}'

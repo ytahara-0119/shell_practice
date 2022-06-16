@@ -1,0 +1,10 @@
+echo ' ======================================== '
+cat table | awk '{if ($1 == "Jane") print $0}'
+echo ' ======================================== '
+cat table | awk '{if ($1 == "Jane") {print $0}}'
+echo ' ======================================== '
+cat /etc/passwd | awk -F ":" '{if ($1 == "root") {print $1, $7}}'
+echo ' ======================================== '
+cat /etc/passwd | grep root
+echo ' ======================================== '
+cat /etc/passwd | awk -F ":" '{if ($1 == "root") {print $1, $7} else {print $1}}'
