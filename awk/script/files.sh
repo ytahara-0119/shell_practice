@@ -54,3 +54,11 @@ if [ $LOC_SET -ne 1 ]; then
 fi
 
 echo "Location: $LOCATION"
+
+if [ "$EXT" != "" ]; then
+  ls -l $LOCATION | awk '/^-/' | grep "\.$EXT$" &>/dev/null
+  if [ $? -ne 0 ]; then
+    echo "No file with extension: $EXT found"
+    exit 2
+  fi
+fi
