@@ -1,0 +1,2 @@
+echo ' =============================== '
+find foo -type f -name "*.text"

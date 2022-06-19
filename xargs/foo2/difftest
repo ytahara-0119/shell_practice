@@ -1,0 +1,12 @@
+echo ' make file ================================ '
+seq 1000 | xargs -I {} touch {}.txt
+echo ' ls ================================ '
+ls
+echo ' remove ================================ '
+time find . -type f -name "*.txt" -exec rm {} \;
+echo ' make file ================================ '
+seq 1000 | xargs -I {} touch {}.txt
+echo ' ls ================================ '
+ls
+echo ' remove ================================ '
+time find . -type f -name "*.txt" | xargs rm

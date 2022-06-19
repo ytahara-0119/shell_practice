@@ -1,0 +1,6 @@
+echo ' ========================='
+cut -d: -f1 < /etc/passwd
+echo ' ========================='
+cut -d: -f1 < /etc/passwd | sort
+echo ' ========================='
+cut -d: -f1 < /etc/passwd | sort | xargs

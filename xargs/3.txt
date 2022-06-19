@@ -1,0 +1,4 @@
+echo ' ========================= '
+ls | xargs -I {} echo "/home/dt/{}" 
+echo ' ========================= '
+ls | xargs -I XXXX echo "/home/dt/XXXX" 
