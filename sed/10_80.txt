@@ -1,0 +1,6 @@
+echo ' ============================= '
+cat table.txt
+echo ' ============================= '
+sed '/PR/c Hidden information form PR unit' table.txt
+echo ' ============================= '
+sed '/HR/c Hidden information form HR unit' table.txt
