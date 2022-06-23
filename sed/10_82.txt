@@ -1,0 +1,8 @@
+echo ' ================================== '
+cat table2.txt
+echo ' ================================== '
+sed -n '/Mark/pq2' table2.txt
+echo ' ================================== '
+sed -ne '/Mark/p' -ne '/Mark/q2' table2.txt
+echo ' ================================== '
+sed -e '/Mark/a after Mark' -e '/Mark/i before Mark' table2.txt

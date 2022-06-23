@@ -1,0 +1,10 @@
+echo ' ======================= '
+cat table2.txt
+echo ' ======================= '
+sed '/Mark/q2' table2.txt
+echo ' ======================= '
+sed '/Richard/q2' table2.txt
+echo ' ======================= '
+sed -n '/Mark/q2' table2.txt
+echo ' ======================= '
+sed -n '/Mark/pq2' table2.txt
