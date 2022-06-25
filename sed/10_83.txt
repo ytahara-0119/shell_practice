@@ -1,0 +1,15 @@
+echo ' 1. ======================================== '
+cat table2.txt
+cp table2.txt table3.txt
+echo ' 2. ======================================== '
+sed -ni '/Peter/p' table3.txt
+echo ' 3. ======================================== '
+cat table3.txt
+rm table3.txt
+cp table2.txt table3.txt
+echo ' 4. ======================================== '
+cat table3.txt
+sed -i '/Peter/a after Peter' table3.txt
+echo ' 5. ======================================== '
+cat table3.txt
+rm table3.txt

@@ -1,0 +1,11 @@
+cat table.txt
+echo ' 1.========================================== '
+sed '/name/e echo -n "Date: "; date' table.txt
+echo ' 2.========================================== '
+sed '/name/e echo -n "Date: "; date; echo "Output of pwd:"; pwd' table.txt
+echo ' 3.========================================== '
+sed '/Mark/e echo -n "Date: "; date' table.txt
+echo ' 4.========================================== '
+sed '1e echo -n "Date: "; date' table.txt
+echo ' 5.========================================== '
+sed '1,$e echo -n "Date: "; date' table.txt
