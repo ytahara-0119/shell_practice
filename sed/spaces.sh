@@ -47,15 +47,22 @@ fi
 
 #display graphically space errors
 if  [ -f "$FILE" ]; then
+  LINE_NUM=0
+
 	while IFS= read -r line
 	do
+		let LINE_NUM++
 		#if there is no space issue on a line, just print the line
 		echo "$line" | sed -e '/[[:blank:]]\+$/q9' -e '/^[[:blank:]]\+/q7' >/dev/null
 		if [ $? -eq 0 ]; then
-			echo "$line"
+			printf %4s "$LINE_NUM:" >> temp.txt
+			echo "$line" >> temp.txt
 			continue
 		fi
 
 	done < "$FILE"
+	
+	cat temp.txt
+	rm temp.txt
 
 fi
