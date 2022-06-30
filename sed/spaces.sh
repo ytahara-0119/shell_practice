@@ -67,13 +67,19 @@ if  [ -f "$FILE" ]; then
 
 		#print on the same line spaces/tabs a red background at the beginning of line
 		if [[ "$line" =~ $REGEX_START ]]; then
-			echo -e -n "\e[41m$BASH_REMATCH\e[49m" >> temp.txt
+			MATCH=`echo "$BASH_REMATCH" | sed 's/\t/|__TAB__|/g'`
+			echo -e -n "\e[41m$MATCH\e[49m" >> temp.txt
 		fi
 
 		#print on the same line part of line which is correct -which doesnt have spaces/tabs at the beginning
 		#and at the end of line
+		echo -e -n "$line" | sed -e 's/^[[:blank:]]\+//' -e 's/[[:blank:]]\+$//' >> temp.txt
 
 		#print on the same line spaces/tabs as a red background at the end of line
+		if [[ "$line" =~ $REGEX_END ]]; then
+			MATCH=`echo "$BASH_REMATCH" | sed 's/\t/|__TAB__|/g'`
+			echo -e -n "\e[41m$MATCH\e[49m" >> temp.txt
+		fi
 		
 
 	done < "$FILE"
