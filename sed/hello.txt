@@ -1,8 +1,8 @@
-            first line
+    first line
 second line
-third line              
+     third line
 bla bla
-something here
+     something here
 also sommething here
 very good
 and another line
