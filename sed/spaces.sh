@@ -41,7 +41,6 @@ if [ $FIX -eq 1 ] && [ -f "$FILE" ]; then
 	echo "Fixing spaces and tabs at the beginning and at the end of lines"
 	sed -i 's/[[:blank:]]\+$//' "$FILE"
 	sed -i 's/^[[:blank:]]\+//' "$FILE"
-	echo "DONE"
 
 fi
 
@@ -78,7 +77,9 @@ if  [ -f "$FILE" ]; then
 		#print on the same line spaces/tabs as a red background at the end of line
 		if [[ "$line" =~ $REGEX_END ]]; then
 			MATCH=`echo "$BASH_REMATCH" | sed 's/\t/|__TAB__|/g'`
-			echo -e -n "\e[41m$MATCH\e[49m" >> temp.txt
+			echo -e "\e[41m$MATCH\e[49m" >> temp.txt
+		else
+			echo >> temp.txt
 		fi
 		
 
@@ -86,5 +87,9 @@ if  [ -f "$FILE" ]; then
 	
 	cat temp.txt
 	rm temp.txt
+fi
 
+if [ $FIX -eq 1 ]; then
+	echo
+	echo -e "\e[42mDONE\e[49m"
 fi

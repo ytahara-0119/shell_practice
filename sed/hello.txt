@@ -1,9 +1,9 @@
-    first line   
-second line
-     third line    
-bla bla
-     something here
-also sommething here
-		very good
-		and another line
-and also some interesting line			
+           first line
+ 	 	second line
+third line
+bla bla 			
+something here 			
+			also sommething here
+	very good
+and another line
+			and also some interesting line
